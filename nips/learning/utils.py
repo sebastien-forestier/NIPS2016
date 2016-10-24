@@ -17,11 +17,9 @@ from explauto.sensorimotor_model.non_parametric import NonParametric
 from explauto import InterestModel
 from explauto.interest_model.discrete_progress import DiscretizedProgress
 from explauto.utils import rand_bounds, bounds_min_max, softmax_choice, prop_choice
-from explauto.environment.dynamic_environment import DynamicEnvironment
 from explauto.interest_model.competences import competence_exp, competence_dist
-from explauto.environment.modular_environment import FlatEnvironment, HierarchicalEnvironment
 
-from environment import Arm, Ball, Stick, ArmBall, ArmStickBalls
+
 from learning_module import LearningModule
 #from utils import compute_explo, display_movement
 
