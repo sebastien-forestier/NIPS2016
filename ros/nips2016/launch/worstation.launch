@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="rate" default="2"/> <!-- Framerate of scene state recording -->
+  <arg name="output" default="screen"/> <!-- Set output="log" to mute the screen output -->
+  <arg name="debug" default="True"/> <!-- Enable debugging information and pictures -->
+
+  <param name="/nips2016/perception/debug" value="$(arg debug)" />
+  <node name="tracking" pkg="nips2016" type="tracking.py" output="$(arg output)"/>
+</launch>
