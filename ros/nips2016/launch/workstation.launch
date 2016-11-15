@@ -5,5 +5,5 @@
   <arg name="debug" default="True"/> <!-- Enable debugging information and pictures -->
 
   <param name="/nips2016/perception/debug" value="$(arg debug)" />
-  <node name="tracking" pkg="nips2016" type="tracking.py" output="$(arg output)"/>
+  <node name="environment" pkg="nips2016" type="environment.py" output="$(arg output)"/>
 </launch>
