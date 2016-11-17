@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-  <arg name="rate" default="2"/> <!-- Framerate of scene state recording -->
-  <arg name="output" default="screen"/> <!-- Set output="log" to mute the screen output -->
-
-  <param name="/nips2016/perception/rate" value="$(arg rate)" />
-  <node name="perception" pkg="nips2016" type="perception.py" output="$(arg output)"/>
-</launch>

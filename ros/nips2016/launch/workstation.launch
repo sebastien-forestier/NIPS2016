@@ -6,5 +6,6 @@
 
   <param name="/nips2016/perception/debug" value="$(arg debug)" />
   <node name="environment" pkg="nips2016" type="environment.py" output="$(arg output)"/>
+  <node name="perception" pkg="nips2016" type="perception.py" output="$(arg output)"/>
   <node name="torso" pkg="nips2016" type="torso.py" output="$(arg output)" respawn="true"/>
 </launch>
