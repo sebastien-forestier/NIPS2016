@@ -14,4 +14,5 @@
   <node name="torso" pkg="nips2016" type="torso.py" output="$(arg output)" respawn="true"/>
   <node name="learning" pkg="nips2016" type="learning.py" output="$(arg output)" required="true"/>
   <node name="controller" pkg="nips2016" type="controller.py" output="$(arg output)" required="true"/>
+  <node name="user" pkg="nips2016" type="user.py" output="$(arg output)" /> <!--required="true"/>-->
 </launch>
