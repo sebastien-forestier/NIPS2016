@@ -4,7 +4,7 @@
   <arg name="debug" default="True"/> <!-- Enable debugging information and pictures -->
   <arg name="source" default="experiment"/> <!-- Source of pre-planned data for this experiment -->
   <arg name="name" default="none"/> <!-- Name of the experiment -->
-  <arg name="iterations" default="-1"/> <!-- Number of iterations to run -->
+  <arg name="iterations" default="1000000"/> <!-- Number of iterations to run -->
 
   <param name="/nips2016/perception/debug" value="$(arg debug)" />
   <param name="/nips2016/experiment_name" value="$(arg name)" />
