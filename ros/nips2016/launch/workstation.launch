@@ -2,8 +2,8 @@
 <launch>
   <arg name="output" default="screen"/> <!-- Set output="log" to mute the screen output -->
   <arg name="debug" default="True"/> <!-- Enable debugging information and pictures -->
-  <arg name="source" default="experiment"/> <!-- Source of pre-planned data for this experiment -->
-  <arg name="name" default="none"/> <!-- Name of the experiment -->
+  <arg name="source" default="none"/> <!-- Source of pre-planned data for this experiment -->
+  <arg name="name" default="experiment"/> <!-- Name of the experiment -->
   <arg name="iterations" default="1000000"/> <!-- Number of iterations to run -->
 
   <param name="/nips2016/perception/debug" value="$(arg debug)" />
