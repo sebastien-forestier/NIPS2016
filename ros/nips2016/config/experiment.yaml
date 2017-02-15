@@ -1,0 +1,26 @@
+- current:
+  - condition: 0
+  - trial: 0
+  - iteration: 0
+
+- sequence: [AMB, RMB, RmB, FGB, SG, OPT]
+
+- params:
+  - AMB:
+    - num_iterations: 3000
+    - num_trials: 5
+  - RMB:
+    - num_iterations: 3000
+    - num_trials: 5
+  - RmB:
+    - num_iterations: 3000
+    - num_trials: 5
+  - FGB:
+    - num_iterations: 3000
+    - num_trials: 5
+  - SG:
+    - num_iterations: 3000
+    - num_trials: 5
+  - OPT:
+    - num_iterations: 3000
+    - num_trials: 5
