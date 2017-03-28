@@ -1,9 +1,9 @@
-done: {condition: AMB, iteration: 0, trial: 0}
+current: {condition: RmB, iteration: 428, trial: 2}
 params:
-  AMB: {num_iterations: 3, num_trials: 2}
-  FGB: {num_iterations: 3, num_trials: 2}
-  OPT: {num_iterations: 3, num_trials: 2}
-  RMB: {num_iterations: 3, num_trials: 2}
-  RmB: {num_iterations: 3, num_trials: 2}
-  SG: {num_iterations: 3, num_trials: 2}
-sequence: [AMB, RMB, RmB, FGB, SG, OPT]
+  AMB: {num_iterations: 3000, num_trials: 5}
+  FGB: {num_iterations: 3000, num_trials: 5}
+  OPT: {num_iterations: 3000, num_trials: 5}
+  RMB: {num_iterations: 3000, num_trials: 5}
+  RmB: {num_iterations: 3000, num_trials: 5}
+  SG: {num_iterations: 3000, num_trials: 5}
+sequence: [AMB, FGB, RMB, RmB, OPT, SG]
