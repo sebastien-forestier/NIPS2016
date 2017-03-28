@@ -1,4 +1,5 @@
-#!/usr/bin/env /python
+#!/usr/bin/env python
+
 import rospy
 from nips2016.ergo import Ergo
 
