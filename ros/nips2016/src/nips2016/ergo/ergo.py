@@ -55,6 +55,10 @@ class Ergo(object):
             rospy.loginfo('Initialized Joystick 1: {}'.format(self.joystick.get_name()))
             rospy.loginfo('Initialized Joystick 2: {}'.format(self.joystick2.get_name()))
 
+    def force_speeds(self):
+        for m in self.ergo.motors:
+            m.moving_speed = 100
+
     def go_to_start(self, slow=True):
         self.go_to([0.0, -15.4, 35.34, -8.06, -15.69, 71.99], 4 if slow else 1)
 
@@ -101,6 +105,7 @@ class Ergo(object):
         self.last_activity = rospy.Time.now()
         self.srv_reset = rospy.Service('/nips2016/ergo/reset', Reset, self._cb_reset)
         rospy.loginfo('Ergo is ready and starts joystick servoing...')
+        self.force_speeds()
 
         while not rospy.is_shutdown():
             self.go_or_resume_standby()
