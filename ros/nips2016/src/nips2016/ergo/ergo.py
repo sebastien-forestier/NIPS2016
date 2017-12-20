@@ -9,7 +9,7 @@ from nips2016.msg import *
 from geometry_msgs.msg import PoseStamped
 from sensor_msgs.msg import Joy
 from std_msgs.msg import Bool
-from poppy.creatures import PoppyErgoJr
+from pypot.creatures import PoppyErgoJr
 from rospkg import RosPack
 from os.path import join
 from .button import Button

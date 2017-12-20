@@ -4,7 +4,7 @@ from os import system
 from nips2016.srv import *
 from geometry_msgs.msg import PoseStamped
 from sensor_msgs.msg import JointState
-from poppy.creatures import PoppyTorso
+from pypot.creatures import PoppyTorso
 from threading import RLock
 from rospkg import RosPack
 from os.path import join
