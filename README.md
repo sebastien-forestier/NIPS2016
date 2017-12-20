@@ -59,19 +59,26 @@ This command requires that not `workstation.launch` is running, as it's already 
 roslaunch nips2016 start.launch
 ```
 You can also pass the following arguments:
- - `source:=string` that will be used as a source experiment in case of time travel
- - `name:=<string>` that will be used to output log files (a pickle file in `logs/`). Be careful that this name is prefixed by the timestamp before using it as a source file
- - `iterations:=<integer>` that will automatically stop the controller after a certain number of iteration (aka trials). If you're using a source file then `iterations` must be greater than the number of iterations recorded in the source file.
+ - `name:=<string>` that will be used to output log files (a pickle file in `logs/`)
+ - `iterations:=<integer>` that will automatically stop the controller after a certain number of iteration (aka trials).
+ - `save:=<bool>` that will dump the database in folder logs/<name>.pickle (can't revert to previous state when save:=true)
  
  For example:
 ```
-roslaunch nips2016 start.launch name:=new_experiment old:=2016-11-29_14-48-12_old_experiment iterations:=6000
+roslaunch nips2016 start.launch name:=new_experiment iterations:=6000 save:=false
 ```
 
 Robot immedialtely starts the requested number of iterations. Press Ctrl+C to interrupt and cause log saving.
-### Results folder
-Logs are saved on a regular basis and at shutdown (Ctrl+C).
-This command will bring you to the folder containing recored experiments, if any:
+
+### Databse dump
+
+To record a database file, you must use parameter `save:=true`.
+If file logs/<name>.pickle exists it will be pursued from the end, otherwise a new file is created.
+With `save:=true` it is not possible to revert to a previous state.
+
+By default saving is not enabled and experiment will either restart from last iteration of <name>.pickle or restart from scratch without saving.
+
+This command will bring you to the folder containing recored database, if any:
 ```
 roscd nips2016/logs
 ```

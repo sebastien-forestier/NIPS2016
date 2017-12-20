@@ -2,6 +2,7 @@
 <launch>
   <arg name="output" default="screen"/> <!-- Set output="log" to mute the screen output -->
   <arg name="debug" default="True"/> <!-- Enable debugging information and pictures -->
+  <arg name="save" default="False"/> <!-- Enable database dumping in folder logs/ -->
   <arg name="source" default="none"/> <!-- Source of pre-planned data for this experiment -->
   <arg name="name" default="experiment"/> <!-- Name of the experiment -->
   <arg name="iterations" default="1000000"/> <!-- Number of iterations to run -->
@@ -10,6 +11,7 @@
   <param name="/nips2016/experiment_name" value="$(arg name)" />
   <param name="/nips2016/source_name" value="$(arg source)" />
   <param name="/nips2016/iterations" value="$(arg iterations)" />
+  <param name="/nips2016/save" value="$(arg save)" />
   <node name="environment" pkg="nips2016" type="environment.py" output="$(arg output)"/>
   <node name="perception" pkg="nips2016" type="perception.py" output="$(arg output)"/>
   <node name="torso" pkg="nips2016" type="torso.py" output="$(arg output)" respawn="true"/>

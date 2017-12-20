@@ -2,15 +2,17 @@
 <launch>
   <arg name="output" default="screen"/> <!-- Set output="log" to mute the screen output -->
   <arg name="debug" default="True"/> <!-- Enable debugging information and pictures -->
+  <arg name="save" default="False"/> <!-- Enable database dumping in folder logs/ -->
   <arg name="source" default="none"/> <!-- Source of pre-planned data for this experiment -->
   <arg name="name" default="experiment"/> <!-- Name of the experiment -->
-  <arg name="iterations" default="1000000"/> <!-- Number of iterations to run -->
+  <arg name="iterations" default="5000"/> <!-- Number of iterations to run -->
 
   <include file="$(find nips2016)/launch/workstation.launch" >
     <arg name="output" value="$(arg output)"/>
     <arg name="debug" value="$(arg debug)"/>
     <arg name="source" value="$(arg source)"/>
     <arg name="name" value="$(arg name)"/>
+    <arg name="save" value="$(arg save)"/>
     <arg name="iterations" value="$(arg iterations)"/>
   </include>
 

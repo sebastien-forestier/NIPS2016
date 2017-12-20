@@ -109,12 +109,13 @@ class LearningNode(object):
 
     ################################# Service callbacks
     def cb_set_iteration(self, request):
-        with self.lock_iteration:
-            ready = copy(self.ready_for_interaction)
-            if ready:
+        if rospy.get_param('/nips2016/save'):
+            rospy.logerr("Can't rewind iterations when parameter save:=true")
+        else:
+            with self.lock_iteration:
+                ready = copy(self.ready_for_interaction)
                 self.ready_for_interaction = False
                 self.set_iteration = request.iteration.data
-
         return SetIterationResponse()
 
     def cb_set_focus(self, request):
@@ -147,6 +148,11 @@ class LearningNode(object):
 
         if not success:
             rospy.logerr("Learner could not perceive this trajectory")
+
+        # Regularly overwrite the results
+        if rospy.get_param('/nips2016/save') and self.learning.get_iterations() % self.params['save_every'] == 0:
+            self.learning.save(self.experiment_file)
+            rospy.loginfo("Saving file (periodic save) into {}".format(self.experiment_file))
 
         # This turn is over, check if we have a time travel pending...
         with self.lock_iteration:
