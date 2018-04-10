@@ -5,7 +5,7 @@ The folder [ros](ros) contains a ROS package to be symlinked to your ROS workspa
 # Initial setup
 ## Raspberry Pi part
 
-**You can directly download the preconfigured SD card image for teh Raspberry Pi [here](https://github.com/sebastien-forestier/NIPS2016/releases/tag/v0.1)**
+⚠️ **You can directly download the preconfigured SD card image for teh Raspberry Pi [HERE](https://github.com/sebastien-forestier/NIPS2016/releases/tag/v0.1).** Or you can follow the instructions bellow to build your own image.
 
   - Install ROS Comm http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Indigo%20on%20Raspberry%20Pi
   - Compile with `catkin_make_isolated -DPYTHON_EXECUTABLE=/home/poppy/miniconda/`
