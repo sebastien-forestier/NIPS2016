@@ -4,12 +4,15 @@ The folder [ros](ros) contains a ROS package to be symlinked to your ROS workspa
 
 # Initial setup
 ## Raspberry Pi part
+
+**You can directly download the preconfigured SD card image for teh Raspberry Pi [here](https://github.com/sebastien-forestier/NIPS2016/releases/tag/v0.1)**
+
   - Install ROS Comm http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Indigo%20on%20Raspberry%20Pi
-  - Compile with `catkin_make_isolated -DPYTHON_EXECUTABLE=/home/poppy/miniconda/` 
+  - Compile with `catkin_make_isolated -DPYTHON_EXECUTABLE=/home/poppy/miniconda/`
   - clone https://github.com/ros/common_msgs.git
-  - Set `export LC_ALL=C` in bashrc to prevent `terminate called after throwing an instance of 'std::runtime_error'   what():  locale::facet::_S_create_c_locale name not valid` errors 
+  - Set `export LC_ALL=C` in bashrc to prevent `terminate called after throwing an instance of 'std::runtime_error'   what():  locale::facet::_S_create_c_locale name not valid` errors
   - Add the NIPS package to ros_ws/src now
-  -  `catkin_make_isolated --pkg nips2016` 
+  -  `catkin_make_isolated --pkg nips2016`
   - `sudo apt-get install swig scons`
   - `pip install RPi.GPIO`
   - `cd ~/Repos && git clone https://github.com/ymollard/rpi_ws281x.git`
@@ -27,9 +30,8 @@ ln -s ~/NIPS2016/ros/workstation.sh ~/catkin_ws/fuzz.sh
 # Launch the process
 ## 1. Start the Raspberry Pi part
 ```
-# Login as root as a fix to be able to connect to the LED strip (RPi's PWM pin)
-ssh root@fuzz.local -X
-cd /home/poppy/ros_ws/
+ssh pi@fuzz.local -X
+cd /home/pi/ros_ws/
 ./fuzz.sh
 roslaunch nips2016 raspberry_pi.launch light:=false
 ```
@@ -42,7 +44,7 @@ If successful, this command must show "Ergo is ready and starts joystick servoin
 cd ~/catkin_ws/fuzz.sh
 ./fuzz.sh
 ```
-The BASH script hereabove setups ROS vairable to use `fuzz.local` as the ROS master.
+The BASH script here above setups ROS variable to use `fuzz.local` as the ROS master.
 Then choose to start either the services/publishers OR the full experiment (services/publishers + controller) on your workstation, 3 or 3bis.
 
 ### 3. Services and publishers only
@@ -62,13 +64,13 @@ You can also pass the following arguments:
  - `name:=<string>` that will be used to output log files (a pickle file in `logs/`)
  - `iterations:=<integer>` that will automatically stop the controller after a certain number of iteration (aka trials).
  - `save:=<bool>` that will dump the database in folder logs/<name>.pickle (can't revert to previous state when save:=true)
- 
+
  For example:
 ```
 roslaunch nips2016 start.launch name:=new_experiment iterations:=6000 save:=false
 ```
 
-Robot immedialtely starts the requested number of iterations. Press Ctrl+C to interrupt and cause log saving.
+Robot immediately starts the requested number of iterations. Press Ctrl+C to interrupt and cause log saving.
 
 ### Databse dump
 
