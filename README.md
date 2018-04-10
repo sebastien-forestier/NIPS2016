@@ -29,8 +29,10 @@ ln -s ~/NIPS2016/ros/workstation.sh ~/catkin_ws/fuzz.sh
 
 # Launch the process
 ## 1. Start the Raspberry Pi part
+⚠️  Don't forget the `-X` for allowing X11 forwarding, which is necessary to use pygame, used for having the feedback of joysticks.
+ 
 ```
-ssh pi@fuzz.local -X
+ssh -X pi@fuzz.local
 cd /home/pi/ros_ws/
 ./fuzz.sh
 roslaunch nips2016 raspberry_pi.launch light:=false
