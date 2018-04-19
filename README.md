@@ -80,9 +80,20 @@ To record a database file, you must use parameter `save:=true`.
 If file logs/<name>.pickle exists it will be pursued from the end, otherwise a new file is created.
 With `save:=true` it is not possible to revert to a previous state.
 
-By default saving is not enabled and experiment will either restart from last iteration of <name>.pickle or restart from scratch without saving.
+**By default saving is not enabled** and experiment will either restart from last iteration of <name>.pickle or restart from scratch without saving.
 
 This command will bring you to the folder containing recored database, if any:
 ```
 roscd nips2016/logs
 ```
+
+
+
+If you want to use a **pre-trained environment**, we provide a [backup](https://github.com/sebastien-forestier/NIPS2016/releases/download/v0.1/experiment.pickle) of a 6000 iteration experiment. 
+Download the pickle on the logs folder, and start the experiment with the default name
+```
+roscd nips2016/logs
+wget https://github.com/sebastien-forestier/NIPS2016/releases/download/v0.1/experiment.pickle -O experiment.pickle
+roslaunch nips2016 start.launch iterations:=20000
+```
+The big number of iterations is to avoid to stop the experiment before starting, because the number of iteration on the backup are already higher than the default maximum iterations value.
