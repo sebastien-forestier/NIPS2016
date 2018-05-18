@@ -73,8 +73,8 @@ class BallTracking(object):
         #cv2.imshow("Green", rgbs[1])
         #cv2.imshow("Blue", rgbs[2])
         cv2.imshow("Hue", hsvs[0])
-        #cv2.imshow("Saturation", hsvs[1])
-        #cv2.imshow("Value", hsvs[2])
+        cv2.imshow("Saturation", hsvs[1])
+        cv2.imshow("Value", hsvs[2])
         cv2.imshow("Mask ball", mask_ball)
         cv2.imshow("Mask arena", mask_arena)
         cv2.imshow("Frame", frame)
@@ -109,13 +109,18 @@ class BallTracking(object):
                             0.35, (0, 0, 255), 1)
 
     def open(self, width=800, height=600):
+        (major,minor, _)=cv2.__version__.split(".")
         try:
             self.camera = cv2.VideoCapture(1)
         except:
             return False
         else:
-            self.camera.set(cv2.cv.CV_CAP_PROP_FRAME_HEIGHT, height)
-            self.camera.set(cv2.cv.CV_CAP_PROP_FRAME_WIDTH, width)
+            if major=='2':
+                self.camera.set(cv2.cv.CV_CAP_PROP_FRAME_HEIGHT, height)
+                self.camera.set(cv2.cv.CV_CAP_PROP_FRAME_WIDTH, width)
+            else:
+                self.camera.set(cv2.CAP_PROP_FRAME_HEIGHT, height)
+                self.camera.set(cv2.CAP_PROP_FRAME_WIDTH, width)
             return True
 
     def close(self):
