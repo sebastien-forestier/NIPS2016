@@ -104,7 +104,7 @@ roslaunch nips2016 start.launch iterations:=20000
 The big number of iterations is to avoid to stop the experiment before starting, because the number of iterations on the backup are already higher than the default maximum iterations value.
 
 
-#Troubleshooting
+# Troubleshooting
 
 * Poppy torso is using the laptop's camera instead of the external webcam.
   * Change the camera used in the file tracking.py from VideoCapture(1) to VideoCapture(0).
